@@ -118,15 +118,26 @@ export default function Index() {
           <span className="font-cormorant font-semibold text-xl text-foreground tracking-wide">
             SpartakYogaPark
           </span>
-          <a
-            href="https://t.me/spartakyogapark_bot"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
-          >
-            <Icon name="Send" size={16} />
-            Telegram
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://t.me/SpartakYogaPark"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
+            >
+              <Icon name="Send" size={16} />
+              <span className="hidden sm:inline">Telegram</span>
+            </a>
+            <a
+              href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
+            >
+              <Icon name="MessageCircle" size={16} />
+              <span className="hidden sm:inline">Max</span>
+            </a>
+          </div>
         </div>
       </header>
 
@@ -491,15 +502,35 @@ export default function Index() {
             </div>
             <div>
               <p className="text-white/40 text-xs uppercase tracking-wider mb-3">Соцсети</p>
-              <a
-                href="https://t.me/spartakyogapark_bot"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
-              >
-                <Icon name="Send" size={14} />
-                @spartakyogapark_bot
-              </a>
+              <div className="space-y-2">
+                <a
+                  href="https://t.me/SpartakYogaPark"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  <Icon name="Send" size={14} />
+                  Telegram-канал
+                </a>
+                <a
+                  href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  <Icon name="MessageCircle" size={14} />
+                  Max
+                </a>
+                <a
+                  href="https://t.me/spartakyogapark_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  <Icon name="Bot" size={14} />
+                  @spartakyogapark_bot
+                </a>
+              </div>
             </div>
           </div>
           <div className="border-t border-white/10 pt-6">

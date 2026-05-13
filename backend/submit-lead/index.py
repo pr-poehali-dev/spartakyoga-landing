@@ -14,7 +14,7 @@ def send_telegram(token: str, chat_id: str, text: str) -> None:
     urllib.request.urlopen(req, timeout=10)
 
 
-def get_chat_id(token: str) -> str:
+def get_chat_id_from_updates(token: str) -> str:
     url = f"https://api.telegram.org/bot{token}/getUpdates"
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req, timeout=10) as resp:
@@ -64,17 +64,26 @@ def handler(event: dict, context) -> dict:
     created_at = row[0].strftime("%d.%m.%Y %H:%M") if row else "—"
 
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+
     if token:
-        chat_id = get_chat_id(token)
+        if not chat_id:
+            try:
+                chat_id = get_chat_id_from_updates(token)
+            except Exception:
+                chat_id = ""
         if chat_id:
             text = (
                 "🌿 <b>Новая заявка — SpartakYogaPark</b>\n\n"
                 f"👤 <b>Имя:</b> {name}\n"
                 f"📞 <b>Телефон:</b> {phone}\n"
                 f"🏞 <b>Парк:</b> {park}\n"
-                f"🕐 <b>Дата:</b> {created_at}"
+                f"🕐 <b>Дата и время:</b> {created_at}"
             )
-            send_telegram(token, chat_id, text)
+            try:
+                send_telegram(token, chat_id, text)
+            except Exception:
+                pass
 
     return {
         "statusCode": 200,
