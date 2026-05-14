@@ -21,15 +21,11 @@ export default function FormSection() {
 
     setLoading(true);
     try {
-      const urls = (window as Record<string, Record<string, string>>).func2url || {};
-      const url = urls["submit-lead"] || "";
-      if (url) {
-        await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        });
-      }
+      await fetch("https://functions.poehali.dev/b8418e48-8714-49ce-9d5a-51c95ff6579e", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
       setSubmitted(true);
     } catch {
       setSubmitted(true);

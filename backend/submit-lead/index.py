@@ -74,11 +74,11 @@ def handler(event: dict, context) -> dict:
                 chat_id = ""
         if chat_id:
             text = (
-                "🌿 <b>Новая заявка — SpartakYogaPark</b>\n\n"
-                f"👤 <b>Имя:</b> {name}\n"
-                f"📞 <b>Телефон:</b> {phone}\n"
-                f"🏞 <b>Парк:</b> {park}\n"
-                f"🕐 <b>Дата и время:</b> {created_at}"
+                "Новая заявка!\n"
+                f"Имя: {name}\n"
+                f"Телефон: {phone}\n"
+                f"Парк: {park}\n"
+                f"Дата: {created_at}"
             )
             try:
                 send_telegram(token, chat_id, text)

@@ -1,6 +1,6 @@
 import Icon from "@/components/ui/icon";
 
-const TRAINER_IMAGE = "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/files/66d57236-99fe-4853-a285-ee2050756d15.jpg";
+const TRAINER_IMAGE = "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/bucket/4e4b7439-b9f9-47fe-b21b-96dee1016d0a.jpeg";
 
 const PARKS = [
   "Сад Эрмитаж",
