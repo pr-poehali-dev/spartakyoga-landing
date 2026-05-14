@@ -2,6 +2,7 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const PARKS = [
+  "Парк Горького",
   "Сад Эрмитаж",
   "Таганский парк",
   "Красная Пресня",
@@ -50,8 +51,8 @@ export default function FormSection() {
         <h2 className="font-cormorant text-4xl md:text-5xl text-white font-light text-center mb-3">
           Записаться на пробное
         </h2>
-        <p className="text-white/50 text-sm text-center mb-10">
-          Свяжусь в течение нескольких часов
+        <p className="text-white/60 text-sm text-center mb-10">
+          Оставь заявку — пришлю расписание и подтверждение
         </p>
 
         {submitted ? (
@@ -60,7 +61,9 @@ export default function FormSection() {
               <Icon name="Check" size={26} className="text-white" />
             </div>
             <h3 className="font-cormorant text-3xl text-white font-light mb-2">Спасибо!</h3>
-            <p className="text-white/60 text-sm">Я свяжусь с вами в ближайшее время</p>
+            <p className="text-white/70 text-sm leading-relaxed">
+              Я свяжусь с вами в ближайшее время и пришлю расписание.
+            </p>
           </div>
         ) : (
           <form
@@ -113,7 +116,7 @@ export default function FormSection() {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-medium text-sm hover:opacity-90 active:scale-95 transition-all duration-200 disabled:opacity-60 mt-2"
             >
-              {loading ? "Отправляем..." : "Записаться на пробное занятие"}
+              {loading ? "Отправляем..." : "Хочу на пробное"}
             </button>
             <p className="text-center text-white/30 text-xs">
               Нажимая кнопку, вы соглашаетесь на обработку данных
