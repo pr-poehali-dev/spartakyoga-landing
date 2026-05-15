@@ -11,14 +11,50 @@ const PARKS = [
   "Другой",
 ];
 
+const formatPhone = (raw: string): string => {
+  let digits = raw.replace(/\D/g, "");
+  if (digits.startsWith("8")) digits = "7" + digits.slice(1);
+  if (!digits.startsWith("7")) digits = "7" + digits;
+  digits = digits.slice(0, 11);
+
+  const d = digits.slice(1);
+  let result = "+7";
+  if (d.length === 0) return result;
+  result += " (" + d.slice(0, 3);
+  if (d.length < 3) return result;
+  result += ") " + d.slice(3, 6);
+  if (d.length < 6) return result;
+  result += "-" + d.slice(6, 8);
+  if (d.length < 8) return result;
+  result += "-" + d.slice(8, 10);
+  return result;
+};
+
+const getDigits = (value: string): string => value.replace(/\D/g, "");
+
+const isPhoneValid = (value: string): boolean => {
+  const digits = getDigits(value);
+  return digits.length === 11 && (digits[0] === "7" || digits[0] === "8");
+};
+
 export default function FormSection() {
   const [form, setForm] = useState({ name: "", phone: "", park: "" });
+  const [phoneTouched, setPhoneTouched] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const phoneValid = isPhoneValid(form.phone);
+  const showPhoneError = phoneTouched && form.phone.length > 0 && !phoneValid;
+  const canSubmit =
+    form.name.trim().length > 0 && phoneValid && form.park.length > 0;
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, phone: formatPhone(e.target.value) });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.phone || !form.park) return;
+    if (!canSubmit || loading) return;
 
     setLoading(true);
     try {
@@ -71,7 +107,9 @@ export default function FormSection() {
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 space-y-4"
           >
             <div>
-              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">Имя</label>
+              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">
+                Имя
+              </label>
               <input
                 type="text"
                 placeholder="Ваше имя"
@@ -82,18 +120,39 @@ export default function FormSection() {
               />
             </div>
             <div>
-              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">Телефон</label>
+              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">
+                Телефон
+              </label>
               <input
                 type="tel"
+                inputMode="numeric"
                 placeholder="+7 (___) ___-__-__"
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                onChange={handlePhoneChange}
+                onFocus={() => {
+                  if (!form.phone) setForm({ ...form, phone: "+7 (" });
+                }}
+                onBlur={() => setPhoneTouched(true)}
+                maxLength={18}
                 required
-                className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-white/50 transition-colors text-sm"
+                aria-invalid={showPhoneError}
+                className={`w-full bg-white/10 border rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none transition-colors text-sm ${
+                  showPhoneError
+                    ? "border-red-400/70 focus:border-red-400"
+                    : "border-white/20 focus:border-white/50"
+                }`}
               />
+              {showPhoneError && (
+                <p className="mt-2 text-xs text-red-300 flex items-center gap-1.5">
+                  <Icon name="AlertCircle" size={13} />
+                  Введите корректный номер телефона
+                </p>
+              )}
             </div>
             <div>
-              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">Парк</label>
+              <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">
+                Парк
+              </label>
               <select
                 value={form.park}
                 onChange={(e) => setForm({ ...form, park: e.target.value })}
@@ -113,8 +172,8 @@ export default function FormSection() {
             </div>
             <button
               type="submit"
-              disabled={loading}
-              className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-medium text-sm hover:opacity-90 active:scale-95 transition-all duration-200 disabled:opacity-60 mt-2"
+              disabled={!canSubmit || loading}
+              className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-medium text-sm hover:opacity-90 active:scale-95 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100 mt-2"
             >
               {loading ? "Отправляем..." : "Хочу на пробное"}
             </button>
