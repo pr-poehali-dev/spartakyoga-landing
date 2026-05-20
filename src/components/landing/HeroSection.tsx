@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon";
+import { reachGoal } from "@/lib/metrika";
 
 const HERO_IMAGE =
   "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/bucket/099d60e3-845f-4bb2-91ed-f85be2907908.jpg";
@@ -81,7 +82,10 @@ export default function HeroSection({ scrollToForm }: HeroSectionProps) {
               style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
             >
               <button
-                onClick={scrollToForm}
+                onClick={() => {
+                  reachGoal("click_cta");
+                  scrollToForm();
+                }}
                 className="bg-primary text-primary-foreground px-7 sm:px-9 py-4 sm:py-5 rounded-full text-base sm:text-lg font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-xl shadow-primary/40"
               >
                 Хочу на пробное — 1 200 ₽

@@ -1,4 +1,5 @@
 import Icon from "@/components/ui/icon";
+import { reachGoal } from "@/lib/metrika";
 
 const TRAINER_IMAGE =
   "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/bucket/4e4b7439-b9f9-47fe-b21b-96dee1016d0a.jpeg";
@@ -265,7 +266,10 @@ export default function InfoSections({ scrollToForm }: InfoSectionsProps) {
           </div>
           <div className="text-center mt-12">
             <button
-              onClick={scrollToForm}
+              onClick={() => {
+                reachGoal("click_cta");
+                scrollToForm();
+              }}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-medium hover:opacity-90 active:scale-95 transition-all duration-200 shadow-lg shadow-primary/25"
             >
               Хочу на пробное — 1 200 ₽
@@ -324,7 +328,10 @@ export default function InfoSections({ scrollToForm }: InfoSectionsProps) {
                   {p.note}
                 </p>
                 <button
-                  onClick={scrollToForm}
+                  onClick={() => {
+                    if (p.cta === "Хочу на пробное") reachGoal("click_cta");
+                    scrollToForm();
+                  }}
                   className={`mt-6 w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
                     p.highlight
                       ? "bg-white text-primary hover:bg-white/90 active:scale-95"

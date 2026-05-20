@@ -1,11 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-
-declare global {
-  interface Window {
-    ym?: (counterId: number, action: string, target: string) => void;
-  }
-}
+import { reachGoal } from "@/lib/metrika";
 
 const PARKS = [
   "Парк Горького",
@@ -69,9 +64,7 @@ export default function FormSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (typeof window !== "undefined" && typeof window.ym === "function") {
-        window.ym(109326728, "reachGoal", "lead");
-      }
+      reachGoal("lead");
       setSubmitted(true);
     } catch {
       setSubmitted(true);
