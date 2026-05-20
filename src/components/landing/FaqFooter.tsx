@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import { reachGoal } from "@/lib/metrika";
 
 const FAQ_ITEMS = [
   {
@@ -93,6 +94,7 @@ export default function FaqFooter() {
                   href="https://t.me/SpartakYogaPark"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => reachGoal("click_telegram")}
                   className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
                 >
                   <Icon name="Send" size={14} />
@@ -102,6 +104,7 @@ export default function FaqFooter() {
                   href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => reachGoal("click_telegram")}
                   className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
                 >
                   <Icon name="MessageCircle" size={14} />
@@ -111,6 +114,7 @@ export default function FaqFooter() {
                   href="https://t.me/spartakyogapark_bot"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => reachGoal("click_telegram")}
                   className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
                 >
                   <Icon name="Bot" size={14} />

@@ -22,6 +22,7 @@ export default function HeroSection({ scrollToForm }: HeroSectionProps) {
               href="https://t.me/SpartakYogaPark"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => reachGoal("click_telegram")}
               className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
             >
               <Icon name="Send" size={16} />
@@ -31,6 +32,7 @@ export default function HeroSection({ scrollToForm }: HeroSectionProps) {
               href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => reachGoal("click_telegram")}
               className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
             >
               <Icon name="MessageCircle" size={16} />
