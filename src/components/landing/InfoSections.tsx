@@ -83,6 +83,7 @@ const PRICES = [
     price: "1 200 ₽",
     note: "Первый шаг",
     cta: "Хочу на пробное",
+    goal: "click_cta",
     highlight: false,
   },
   {
@@ -90,6 +91,7 @@ const PRICES = [
     price: "4 000 ₽",
     note: "1 000 ₽ за занятие",
     cta: "Выбрать абонемент",
+    goal: "select_pack_4",
     highlight: false,
   },
   {
@@ -97,6 +99,7 @@ const PRICES = [
     price: "7 500 ₽",
     note: "938 ₽ за занятие",
     cta: "Выбрать абонемент",
+    goal: "select_pack_8",
     highlight: true,
     badge: "Самый выгодный",
   },
@@ -329,7 +332,7 @@ export default function InfoSections({ scrollToForm }: InfoSectionsProps) {
                 </p>
                 <button
                   onClick={() => {
-                    if (p.cta === "Хочу на пробное") reachGoal("click_cta");
+                    reachGoal(p.goal);
                     scrollToForm();
                   }}
                   className={`mt-6 w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
