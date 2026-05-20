@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { reachGoal } from "@/lib/metrika";
 
@@ -39,9 +40,9 @@ const isPhoneValid = (value: string): boolean => {
 };
 
 export default function FormSection() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", phone: "", park: "" });
   const [phoneTouched, setPhoneTouched] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const phoneValid = isPhoneValid(form.phone);
@@ -65,11 +66,11 @@ export default function FormSection() {
         body: JSON.stringify(form),
       });
       reachGoal("lead");
-      setSubmitted(true);
     } catch {
-      setSubmitted(true);
+      // Заявка могла дойти — всё равно ведём на спасибо
     } finally {
       setLoading(false);
+      navigate("/spasibo");
     }
   };
 
@@ -93,21 +94,10 @@ export default function FormSection() {
           Оставь заявку — пришлю расписание и подтверждение
         </p>
 
-        {submitted ? (
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 text-center border border-white/20">
-            <div className="w-14 h-14 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Icon name="Check" size={26} className="text-white" />
-            </div>
-            <h3 className="font-cormorant text-3xl text-white font-light mb-2">Спасибо!</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Я свяжусь с вами в ближайшее время и пришлю расписание.
-            </p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 space-y-4"
-          >
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 space-y-4"
+        >
             <div>
               <label className="block text-white/60 text-xs uppercase tracking-wider mb-2">
                 Имя
@@ -183,7 +173,6 @@ export default function FormSection() {
               Нажимая кнопку, вы соглашаетесь на обработку данных
             </p>
           </form>
-        )}
       </div>
     </section>
   );
