@@ -47,8 +47,17 @@ export default function Spasibo() {
             Спасибо!
           </h1>
           <p className="text-white/75 text-base md:text-lg leading-relaxed">
-            Я свяжусь с вами в ближайшее время и пришлю расписание ближайших
-            занятий.
+            Я свяжусь с вами в ближайшее время и подтвержу место на занятии.
+            Актуальное расписание — в боте{" "}
+            <a
+              href="https://t.me/spartakyogapark_bot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sage underline underline-offset-2 hover:opacity-80 transition-opacity"
+            >
+              @spartakyogapark_bot
+            </a>
+            .
           </p>
         </div>
 
@@ -96,13 +105,22 @@ export default function Spasibo() {
         {/* CTA */}
         <div className="mt-10 space-y-3">
           <a
-            href="https://t.me/SpartakYogaPark"
+            href="https://t.me/spartakyogapark_bot"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full bg-primary text-primary-foreground py-4 rounded-xl font-semibold text-sm hover:opacity-90 active:scale-95 transition-all duration-200"
           >
+            <Icon name="Bot" size={16} />
+            Посмотреть расписание в боте
+          </a>
+          <a
+            href="https://t.me/SpartakYogaPark"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-white/10 text-white py-4 rounded-xl font-medium text-sm hover:bg-white/15 active:scale-95 transition-all duration-200 border border-white/20"
+          >
             <Icon name="Send" size={16} />
-            Подписаться на Telegram-канал
+            Подписаться на канал в Telegram
           </a>
           <Link
             to="/"

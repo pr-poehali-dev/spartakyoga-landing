@@ -91,7 +91,7 @@ export default function FormSection() {
           Записаться на пробное
         </h2>
         <p className="text-white/60 text-sm text-center mb-10">
-          Оставь заявку — пришлю расписание и подтверждение
+          Оставь заявку — свяжусь и подтвержу место
         </p>
 
         <form
