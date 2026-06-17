@@ -1,103 +1,81 @@
-import Icon from "@/components/ui/icon";
 import { reachGoal } from "@/lib/metrika";
 
-const HERO_IMAGE =
-  "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/bucket/099d60e3-845f-4bb2-91ed-f85be2907908.jpg";
+const PORTRAIT_URL =
+  "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/files/favicon-1778715807695.jpg";
 
-interface HeroSectionProps {
-  scrollToForm: () => void;
-}
+const TG_LINK = "https://t.me/spartakmihailovich";
 
-export default function HeroSection({ scrollToForm }: HeroSectionProps) {
+export default function HeroSection() {
   return (
     <>
-      {/* HEADER / NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+      {/* NAV */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#fafaf9]/90 backdrop-blur-md border-b border-[#e7e5e4]">
         <div className="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
-          <span className="font-cormorant font-semibold text-xl text-foreground tracking-wide">
-            SpartakYogaPark
+          <span className="font-cormorant font-semibold text-xl text-[#1c1917] tracking-wide">
+            Спартак
           </span>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://t.me/SpartakYogaPark"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => reachGoal("click_telegram")}
-              className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
-            >
-              <Icon name="Send" size={16} />
-              <span className="hidden sm:inline">Telegram</span>
-            </a>
-            <a
-              href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => reachGoal("click_telegram")}
-              className="flex items-center gap-2 text-sm font-medium text-primary hover:opacity-75 transition-opacity"
-            >
-              <Icon name="MessageCircle" size={16} />
-              <span className="hidden sm:inline">Max</span>
-            </a>
-          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-[#78716c]">
+            <a href="#why-cheap" className="hover:text-[#1c1917] transition-colors">О цене</a>
+            <a href="#for-whom" className="hover:text-[#1c1917] transition-colors">Кому подходит</a>
+            <a href="#trainer" className="hover:text-[#1c1917] transition-colors">Тренер</a>
+            <a href="#price" className="hover:text-[#1c1917] transition-colors">Цена</a>
+            <a href="#faq" className="hover:text-[#1c1917] transition-colors">FAQ</a>
+          </nav>
+          <a
+            href={TG_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => reachGoal("click_telegram_nav")}
+            className="text-sm font-medium bg-[#2d4a1e] text-white px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
+          >
+            Написать
+          </a>
         </div>
       </header>
 
       {/* HERO */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden pt-16">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={HERO_IMAGE}
-            alt="Йога в парке"
-            className="w-full h-full object-cover object-[center_30%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest/85 via-forest/60 to-forest/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-5 py-24 md:py-36 w-full">
-          <div className="max-w-2xl">
-            <p
-              className="text-sage text-xs sm:text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-fade-up opacity-0"
-              style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
-            >
-              Москва · На свежем воздухе
-            </p>
-            <h1
-              className="font-cormorant text-4xl sm:text-5xl md:text-7xl text-white font-light leading-[1.05] mb-6 animate-fade-up opacity-0"
-              style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
-            >
-              Йога на свежем воздухе
-              <em className="block font-light not-italic text-emerald-light mt-1">
-                в парках Москвы
-              </em>
-            </h1>
-            <p
-              className="text-white/85 text-base sm:text-lg leading-relaxed mb-8 max-w-xl animate-fade-up opacity-0"
-              style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
-            >
-              Каждое утро в 8:00 и каждый вечер в 19:30. Формат 1,5 часа.
-              Пробное — 1 200 ₽. Без эзотерики — просто практика для тела и
-              энергии.
-            </p>
-            <div
-              className="animate-fade-up opacity-0"
-              style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
-            >
-              <button
-                onClick={() => {
-                  reachGoal("click_cta");
-                  scrollToForm();
-                }}
-                className="bg-primary text-primary-foreground px-7 sm:px-9 py-4 sm:py-5 rounded-full text-base sm:text-lg font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-xl shadow-primary/40"
+      <section id="hero" className="pt-24 pb-20 md:pt-32 md:pb-28 bg-[#fafaf9]">
+        <div className="max-w-5xl mx-auto px-5">
+          <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10">
+            {/* Text */}
+            <div className="max-w-2xl">
+              <h1 className="font-cormorant text-[clamp(40px,7vw,72px)] text-[#1c1917] font-light leading-[1.05] mb-5">
+                Йога онлайн с тренером.
+                <br />
+                <span className="text-[#2d4a1e]">Первое занятие — 1 000 ₽</span>
+              </h1>
+              <p className="text-[#78716c] text-lg leading-relaxed mb-8 max-w-xl">
+                Я только вышел в онлайн. Первые клиенты получают тренировки по 1 000 ₽ вместо 5 000. До конца июля.
+              </p>
+              <a
+                href={TG_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => reachGoal("click_cta_hero")}
+                style={{ borderRadius: "100px", padding: "16px 40px", backgroundColor: "#2d4a1e" }}
+                className="inline-block text-white text-base font-medium hover:opacity-90 active:scale-95 transition-all duration-200"
               >
-                Хочу на пробное — 1 200 ₽
-              </button>
+                Записаться на тренировку
+              </a>
+              <p className="mt-4 text-[#78716c] text-sm leading-relaxed max-w-md">
+                Вживую — 5 000 ₽. Онлайн — 1 000 ₽. Разница только в том, что вы дома.
+              </p>
+              <p className="mt-2 text-[#78716c] text-sm">
+                +7 996 997 15 27
+              </p>
+            </div>
+
+            {/* Portrait */}
+            <div className="flex justify-center md:justify-end flex-shrink-0">
+              <img
+                src={PORTRAIT_URL}
+                alt="Спартак — тренер по йоге"
+                width={200}
+                height={200}
+                className="w-[200px] h-[200px] rounded-full object-cover border-4 border-[#e7e5e4]"
+              />
             </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce opacity-60">
-          <Icon name="ChevronDown" size={24} className="text-white" />
         </div>
       </section>
     </>
