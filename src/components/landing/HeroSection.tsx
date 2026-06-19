@@ -109,7 +109,7 @@ export default function HeroSection() {
                 className="w-[200px] h-[200px] rounded-full object-cover border-4 border-[#e7e5e4]"
               />
               <p className="mt-4 text-center md:text-right text-sm text-[#78716c] max-w-[220px]">
-                <span className="block font-medium text-[#1c1917]">Захаров Спартак Михалович</span>
+                <span className="block font-medium text-[#1c1917]">Спартак Михайлович</span>
                 преподаю йогу 10 лет
               </p>
             </div>
