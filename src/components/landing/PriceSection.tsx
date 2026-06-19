@@ -15,7 +15,7 @@ export default function PriceSection() {
             <p className="font-cormorant text-3xl text-white font-light mb-2">
               До конца июля — <span className="whitespace-nowrap">1 000 ₽</span> за тренировку
             </p>
-            <p className="text-white/50 text-sm">Первое занятие — <span className="whitespace-nowrap">1 000 ₽</span>. Если не понравится — верну деньги.</p>
+            <p className="text-white/50 text-sm">Запишитесь сейчас — место занимаю под вас лично</p>
           </div>
           <div className="rounded-2xl border border-white/20 p-8 bg-white/5">
             <p className="font-cormorant text-3xl text-white font-light mb-2">
@@ -25,20 +25,20 @@ export default function PriceSection() {
           </div>
         </div>
 
+        <p className="text-white/50 text-sm mb-8">
+          Успевайте по цене запуска
+        </p>
+
         <a
           href={TG_LINK}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => reachGoal("click_cta_price")}
           style={{ borderRadius: "100px", padding: "16px 40px", backgroundColor: "#2d4a1e" }}
-          className="inline-block text-white text-base font-medium hover:opacity-90 active:scale-95 transition-all duration-200 mb-4"
+          className="inline-block text-white text-base font-medium hover:opacity-90 active:scale-95 transition-all duration-200"
         >
           Записаться по цене июля
         </a>
-
-        <p className="text-white/40 text-xs mt-4">
-          Первое занятие — <span className="whitespace-nowrap">1 000 ₽</span>. Если не понравится — верну деньги.
-        </p>
       </div>
     </section>
   );

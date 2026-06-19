@@ -1,6 +1,7 @@
 import HeroSection from "@/components/landing/HeroSection";
 import TrainerSection from "@/components/landing/TrainerSection";
 import ForWhomSection from "@/components/landing/ForWhomSection";
+import WhyTrainerSection from "@/components/landing/WhyTrainerSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import PriceSection from "@/components/landing/PriceSection";
 import HowToStartSection from "@/components/landing/HowToStartSection";
@@ -12,6 +13,7 @@ export default function Index() {
       <HeroSection />
       <TrainerSection />
       <ForWhomSection />
+      <WhyTrainerSection />
       <HowItWorksSection />
       <PriceSection />
       <HowToStartSection />
