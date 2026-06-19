@@ -67,7 +67,7 @@ export default function FaqFooter() {
       <footer className="bg-[#1c1917] py-12">
         <div className="max-w-5xl mx-auto px-5">
           <p className="font-cormorant text-2xl text-white font-light mb-6">Спартак Захаров</p>
-          <div className="flex flex-col gap-2 text-[#78716c] text-sm">
+          <div className="flex flex-col gap-3 text-[#78716c] text-sm">
             <a href="tel:+79969971527" className="hover:text-white transition-colors">
               +7 996 997 15 27
             </a>
@@ -77,13 +77,29 @@ export default function FaqFooter() {
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
-              @spartakmihailovich
+              Telegram: @spartakmihailovich
+            </a>
+            <a
+              href="https://www.instagram.com/yogaspartak/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Подписывайтесь в Instagram — там видео, упражнения и анонсы
             </a>
             <a
               href="mailto:almaznayaspina@gmail.com"
               className="hover:text-white transition-colors"
             >
               almaznayaspina@gmail.com
+            </a>
+            <a
+              href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Max
             </a>
           </div>
         </div>

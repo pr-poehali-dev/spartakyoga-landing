@@ -13,25 +13,25 @@ export default function PriceSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
           <div className="rounded-2xl border border-white/20 p-8 bg-white/5">
             <p className="font-cormorant text-3xl text-white font-light mb-2">
-              1 занятие — 1 000 ₽
+              1 занятие — <span className="whitespace-nowrap">1 000 ₽</span>
             </p>
-            <p className="text-white/50 text-sm">Вживую стоит 5 000 ₽</p>
+            <p className="text-white/50 text-sm">Вживую стоит <span className="whitespace-nowrap">5 000 ₽</span></p>
           </div>
           <div className="rounded-2xl border border-[#2d4a1e] p-8 bg-[#2d4a1e]/20">
             <p className="font-cormorant text-3xl text-white font-light mb-2">
-              5 занятий — 5 000 ₽
+              5 занятий — <span className="whitespace-nowrap">5 000 ₽</span>
             </p>
-            <p className="text-white/50 text-sm">1 000 ₽ за занятие — заморозка цены</p>
+            <p className="text-white/50 text-sm"><span className="whitespace-nowrap">1 000 ₽</span> за занятие — заморозка цены</p>
           </div>
         </div>
 
         <p className="text-white/60 text-sm mb-6">
-          Потом — 2 000 ₽ за занятие. Успевайте по цене запуска.
+          Потом — <span className="whitespace-nowrap">2 000 ₽</span> за занятие. Успевайте по цене запуска.
         </p>
 
         <div className="rounded-2xl border border-white/10 p-6 bg-white/5 mb-8">
           <p className="text-white/80 text-sm leading-relaxed">
-            Если вы готовы оставить честный отзыв после месяца занятий — я закреплю за вами цену 1 000 ₽ ещё на месяц.
+            Если вы готовы оставить честный отзыв после месяца занятий — я закреплю за вами цену <span className="whitespace-nowrap">1 000 ₽</span> ещё на месяц.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export default function PriceSection() {
         </a>
 
         <p className="text-white/40 text-xs mt-4">
-          Первое занятие — 1 000 ₽. Если не понравится — верну деньги.
+          Первое занятие — <span className="whitespace-nowrap">1 000 ₽</span>. Если не понравится — верну деньги.
         </p>
       </div>
     </section>

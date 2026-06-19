@@ -40,12 +40,11 @@ export default function HeroSection() {
             {/* Text */}
             <div className="max-w-2xl">
               <h1 className="font-cormorant text-[clamp(40px,7vw,72px)] text-[#1c1917] font-light leading-[1.05] mb-5">
-                Йога онлайн с тренером.
-                <br />
-                <span className="text-[#2d4a1e]">Первое занятие — 1 000 ₽</span>
+                Сними боль в спине и шее.{" "}
+                <span className="whitespace-nowrap">Йога онлайн</span> с тренером.
               </h1>
               <p className="text-[#78716c] text-lg leading-relaxed mb-8 max-w-xl">
-                Я только вышел в онлайн. Первые клиенты получают тренировки по 1 000 ₽ вместо 5 000. До конца июля.
+                10+ лет практики. Вёл на крупных фестивалях. Индивидуально — я смотрю и поправляю по камере. Никакой эзотерики. Для любого возраста и уровня.
               </p>
               <a
                 href={TG_LINK}
@@ -55,13 +54,10 @@ export default function HeroSection() {
                 style={{ borderRadius: "100px", padding: "16px 40px", backgroundColor: "#2d4a1e" }}
                 className="inline-block text-white text-base font-medium hover:opacity-90 active:scale-95 transition-all duration-200"
               >
-                Записаться на тренировку
+                Записаться на пробную тренировку
               </a>
-              <p className="mt-4 text-[#78716c] text-sm leading-relaxed max-w-md">
-                Вживую — 5 000 ₽. Онлайн — 1 000 ₽. Разница только в том, что вы дома.
-              </p>
-              <p className="mt-2 text-[#78716c] text-sm">
-                +7 996 997 15 27
+              <p className="mt-4 text-[#78716c] text-sm">
+                До конца июля — <span className="whitespace-nowrap">1 000 ₽</span>. Потом — <span className="whitespace-nowrap">2 000 ₽</span>.
               </p>
             </div>
 
@@ -69,7 +65,7 @@ export default function HeroSection() {
             <div className="flex justify-center md:justify-end flex-shrink-0">
               <img
                 src={PORTRAIT_URL}
-                alt="Спартак — тренер по йоге"
+                alt="Спартак"
                 width={200}
                 height={200}
                 className="w-[200px] h-[200px] rounded-full object-cover border-4 border-[#e7e5e4]"
