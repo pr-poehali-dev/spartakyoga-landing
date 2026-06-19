@@ -5,23 +5,36 @@ export default function TrainerSection() {
   return (
     <section id="trainer" className="py-20 md:py-[80px] bg-[#f5f4f2]">
       <div className="max-w-5xl mx-auto px-5">
-        <div className="flex flex-col md:flex-row md:items-center gap-10">
-          <img
-            src={PORTRAIT_URL}
-            alt="Спартак Захаров"
-            width={200}
-            height={200}
-            className="w-[200px] h-[200px] rounded-full object-cover border-4 border-[#e7e5e4] flex-shrink-0"
-          />
-          <div>
-            <h2 className="font-cormorant text-[clamp(32px,5vw,48px)] text-[#1c1917] font-light mb-4">
-              Спартак
+        <div className="flex flex-col md:flex-row gap-10 md:gap-14">
+          {/* Фото */}
+          <div className="flex-shrink-0 flex justify-center md:justify-start">
+            <img
+              src={PORTRAIT_URL}
+              alt="Спартак Михайлович"
+              width={200}
+              height={200}
+              className="w-[200px] h-[200px] rounded-full object-cover border-4 border-[#e7e5e4]"
+            />
+          </div>
+
+          {/* Текст */}
+          <div className="max-w-xl">
+            <h2 className="font-cormorant text-[clamp(32px,5vw,48px)] text-[#1c1917] font-light mb-5">
+              Спартак Михайлович
             </h2>
-            <p className="text-[#78716c] text-lg leading-[1.8]">
-              10+ лет практики, 5+ лет преподавания. Вёл практики на крупных фестивалях:
-              Дикая Мята, Равновесие, Сказка. Работал с любым уровнем — от новичков до профи.
-              Теперь провожу индивидуальные тренировки онлайн.
+            <p className="text-[#78716c] text-base leading-[1.8] mb-2">
+              Преподаю йогу более 10 лет.
             </p>
+            <p className="text-[#78716c] text-base leading-[1.8] mb-6">
+              Вёл практики на крупных фестивалях: Дикая Мята, Равновесие, Сказка, Систо, Чилаут Пленет, Сан Спирит. Работал с любым уровнем — от новичков до профи. Теперь провожу индивидуальные тренировки онлайн.
+            </p>
+            <blockquote className="border-l-2 border-[#2d4a1e] pl-5 italic text-[#78716c] text-sm leading-[1.9] space-y-3">
+              <p>Я 10 лет вёл живые занятия в парках, на фестивалях и корпоративах. Вживую мои тренировки стоили от <span className="whitespace-nowrap">5 000 ₽</span>.</p>
+              <p>Сейчас выхожу в онлайн. У меня пока нет отзывов в онлайне — и я не хочу притворяться.</p>
+              <p>Поэтому первым ученикам — особая цена: <span className="whitespace-nowrap">1 000 ₽</span> за тренировку. До конца июля.</p>
+              <p>В августе — <span className="whitespace-nowrap">2 000 ₽</span>. Успевайте.</p>
+              <p>Если готовы оставить честный отзыв после месяца занятий — закреплю цену <span className="whitespace-nowrap">1 000 ₽</span> ещё на месяц.</p>
+            </blockquote>
           </div>
         </div>
       </div>
