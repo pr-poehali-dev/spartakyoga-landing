@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import LeadForm from "@/components/landing/LeadForm";
 
 const FAQ = [
   {
@@ -50,16 +51,17 @@ export default function FaqFooter() {
   return (
     <>
       {/* FAQ */}
-      <section id="faq" className="py-20 md:py-[80px] bg-[#fafaf9]">
+      <section id="faq" className="py-20 bg-[#fafaf9]">
         <div className="max-w-3xl mx-auto px-5">
-          <h2 className="font-cormorant text-[clamp(32px,5vw,48px)] text-[#1c1917] font-light mb-8">
+          <h2 className="font-cormorant text-[clamp(32px,5vw,48px)] text-[#1c1917] font-light mb-8 text-center">
             Частые вопросы
           </h2>
-          <div>
+          <div className="mb-12">
             {FAQ.map((item) => (
               <FaqItem key={item.q} q={item.q} a={item.a} />
             ))}
           </div>
+          <LeadForm source="spartak.space / faq" goal="lead_faq" />
         </div>
       </section>
 
@@ -92,6 +94,14 @@ export default function FaqFooter() {
               className="hover:text-white transition-colors"
             >
               almaznayaspina@gmail.com
+            </a>
+            <a
+              href="https://max.ru/u/f9LHodD0cOK2akQqqbZgNwz1WdkgtP5nmCd5Rqwl7yqW5GNNJwbZEpn_zSY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Я пользуюсь мессенджером MAX. Присоединяйся!
             </a>
           </div>
         </div>
