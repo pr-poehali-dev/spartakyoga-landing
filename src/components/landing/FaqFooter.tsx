@@ -93,14 +93,6 @@ export default function FaqFooter() {
             >
               almaznayaspina@gmail.com
             </a>
-            <a
-              href="https://max.ru/join/-5rZSTR_Yu0HQJAsQgOwVJAo-hZlt1rS7_Fu8UsOmnc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Max
-            </a>
           </div>
         </div>
       </footer>
