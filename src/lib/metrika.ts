@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-const YM_COUNTER_ID = 109326728;
+const YM_COUNTER_ID = 110169988;
 
 const ensureYm = (): NonNullable<Window["ym"]> => {
   const w = window as Window;

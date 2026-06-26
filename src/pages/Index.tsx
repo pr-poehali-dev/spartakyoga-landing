@@ -1,23 +1,27 @@
-import HeroSection from "@/components/landing/HeroSection";
-import TrainerSection from "@/components/landing/TrainerSection";
-import ForWhomSection from "@/components/landing/ForWhomSection";
-import WhyTrainerSection from "@/components/landing/WhyTrainerSection";
-import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import PriceSection from "@/components/landing/PriceSection";
-import HowToStartSection from "@/components/landing/HowToStartSection";
-import FaqFooter from "@/components/landing/FaqFooter";
+import Header from "@/components/event/Header";
+import Hero from "@/components/event/Hero";
+import Projects from "@/components/event/Projects";
+import Advantages from "@/components/event/Advantages";
+import Formats from "@/components/event/Formats";
+import Organizers from "@/components/event/Organizers";
+import Gift from "@/components/event/Gift";
+import Faq from "@/components/event/Faq";
+import LeadForm from "@/components/event/LeadForm";
+import Footer from "@/components/event/Footer";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-[#fafaf9] font-golos">
-      <HeroSection />
-      <TrainerSection />
-      <ForWhomSection />
-      <WhyTrainerSection />
-      <HowItWorksSection />
-      <PriceSection />
-      <HowToStartSection />
-      <FaqFooter />
+    <div className="min-h-screen bg-[#f7f5f2] font-golos">
+      <Header />
+      <Hero />
+      <Projects />
+      <Advantages />
+      <Formats />
+      <Organizers />
+      <Gift />
+      <Faq />
+      <LeadForm />
+      <Footer />
     </div>
   );
 }
