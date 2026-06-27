@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Reveal from "@/components/event/Reveal";
 import { reachGoal } from "@/lib/metrika";
 import func2url from "../../../backend/func2url.json";
 
 const LEAD_URL = func2url["lead"];
-
-const FORMATS = ["Корпоратив", "Фестиваль", "Частное", "Регулярная в офисе", "Другое"];
 
 const formatPhone = (raw: string): string => {
   let digits = raw.replace(/\D/g, "");
@@ -28,23 +26,11 @@ const formatPhone = (raw: string): string => {
 const isPhoneValid = (value: string) => value.replace(/\D/g, "").length === 11;
 
 export default function LeadForm() {
-  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [format, setFormat] = useState(FORMATS[0]);
-  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
 
-  useEffect(() => {
-    const onPreset = (e: Event) => {
-      const detail = (e as CustomEvent).detail as string;
-      if (FORMATS.includes(detail)) setFormat(detail);
-    };
-    window.addEventListener("preset-format", onPreset);
-    return () => window.removeEventListener("preset-format", onPreset);
-  }, []);
-
-  const valid = name.trim().length > 0 && isPhoneValid(phone);
+  const valid = isPhoneValid(phone);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +40,7 @@ export default function LeadForm() {
       await fetch(LEAD_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, format, comment }),
+        body: JSON.stringify({ name: "Заявка с сайта", phone }),
       });
       reachGoal("lead_submit");
     } catch {
@@ -66,37 +52,22 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="lead-form" className="py-20 md:py-28 bg-[#2d4a1e]">
-      <div className="max-w-xl mx-auto px-5">
+    <section id="lead-form" className="py-20 md:py-28 bg-[#f7f5f2]">
+      <div className="max-w-md mx-auto px-5 text-center">
         <Reveal>
-          <h2 className="font-cormorant text-[clamp(30px,5vw,48px)] font-semibold text-white text-center mb-3">
+          <h2 className="font-cormorant text-[clamp(30px,5vw,48px)] font-semibold text-[#1a1a1a] mb-3">
             Обсудить мероприятие
           </h2>
-          <p className="text-white/70 text-center mb-10">
-            Оставьте заявку — пришлю КП с тремя вариантами за 1 час
-          </p>
+          <p className="text-[#1a1a1a]/70 mb-10">Оставьте номер — пришлю предложение</p>
         </Reveal>
 
         <Reveal>
           {sent ? (
-            <div className="rounded-2xl bg-white p-10 text-center">
-              <p className="font-cormorant text-2xl text-[#1c1917] font-semibold mb-2">
-                Спасибо!
-              </p>
-              <p className="text-[#3a3a32]">
-                Свяжусь с вами в ближайшее время. Обычно отвечаю в течение часа.
-              </p>
-            </div>
+            <p className="font-cormorant text-2xl text-[#2d4a1e] font-semibold">
+              Спасибо! Свяжусь в ближайшее время.
+            </p>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="text"
-                placeholder="Имя"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="w-full rounded-xl bg-white px-5 py-4 text-[#1c1917] placeholder-[#8a8a7a] focus:outline-none focus:ring-2 focus:ring-white/50"
-              />
               <input
                 type="tel"
                 inputMode="numeric"
@@ -106,34 +77,30 @@ export default function LeadForm() {
                 onFocus={() => { if (!phone) setPhone("+7 ("); }}
                 maxLength={18}
                 required
-                className="w-full rounded-xl bg-white px-5 py-4 text-[#1c1917] placeholder-[#8a8a7a] focus:outline-none focus:ring-2 focus:ring-white/50"
-              />
-              <select
-                value={format}
-                onChange={(e) => setFormat(e.target.value)}
-                className="w-full rounded-xl bg-white px-5 py-4 text-[#1c1917] focus:outline-none focus:ring-2 focus:ring-white/50 appearance-none"
-              >
-                {FORMATS.map((f) => (
-                  <option key={f} value={f}>{f}</option>
-                ))}
-              </select>
-              <textarea
-                placeholder="Комментарий (необязательно)"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                rows={3}
-                className="w-full rounded-xl bg-white px-5 py-4 text-[#1c1917] placeholder-[#8a8a7a] focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                className="w-full rounded-xl bg-white border border-black/10 px-5 py-4 text-[#1a1a1a] placeholder-[#1a1a1a]/40 focus:outline-none focus:border-[#2d4a1e] transition-colors text-center"
               />
               <button
                 type="submit"
                 disabled={!valid || loading}
-                className="w-full rounded-xl bg-[#1c1917] text-white text-base font-medium py-4 hover:bg-black disabled:opacity-40 transition-all"
+                className="w-full rounded-xl bg-[#2d4a1e] text-white text-base font-medium py-4 hover:bg-[#24401a] disabled:opacity-40 transition-colors"
               >
                 {loading ? "Отправляю..." : "Получить предложение"}
               </button>
             </form>
           )}
         </Reveal>
+
+        {!sent && (
+          <p className="text-[#1a1a1a]/55 text-sm mt-5">
+            Или напишите на почту:{" "}
+            <a
+              href="mailto:almaznayaspina@gmail.com"
+              className="text-[#2d4a1e] hover:underline"
+            >
+              almaznayaspina@gmail.com
+            </a>
+          </p>
+        )}
       </div>
     </section>
   );

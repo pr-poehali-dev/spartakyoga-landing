@@ -1,7 +1,6 @@
-import Header from "@/components/event/Header";
 import Hero from "@/components/event/Hero";
-import Projects from "@/components/event/Projects";
 import Advantages from "@/components/event/Advantages";
+import Cases from "@/components/event/Cases";
 import Formats from "@/components/event/Formats";
 import Organizers from "@/components/event/Organizers";
 import Gift from "@/components/event/Gift";
@@ -12,10 +11,9 @@ import Footer from "@/components/event/Footer";
 export default function Index() {
   return (
     <div className="min-h-screen bg-[#f7f5f2] font-golos">
-      <Header />
       <Hero />
-      <Projects />
       <Advantages />
+      <Cases />
       <Formats />
       <Organizers />
       <Gift />

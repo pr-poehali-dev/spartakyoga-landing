@@ -1,39 +1,34 @@
 import { scrollToForm } from "@/components/event/scrollToForm";
 
-const HERO_BG =
-  "https://cdn.poehali.dev/projects/0b3da737-ea78-41e6-98b6-5614750b2c31/files/f2b1641f-a45d-4b87-9fab-a1159f1fdf4b.jpg";
-
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      <img
-        src={HERO_BG}
-        alt="Йога на мероприятии"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#f7f5f2] via-[#f7f5f2]/85 to-[#f7f5f2]/40 md:to-transparent" />
-
-      <div className="relative max-w-6xl mx-auto px-5 w-full py-20">
-        <div className="max-w-2xl">
-          <h1 className="font-cormorant text-[clamp(38px,7vw,76px)] font-semibold text-[#1c1917] leading-[1.04] mb-6">
-            Йога на ваше мероприятие.
-            <br />
-            Приезжает команда тренеров.
-          </h1>
-          <p className="text-[#3a3a32] text-lg leading-relaxed mb-8 max-w-xl">
-            Я веду практику — ассистентки поправляют каждого. Никто не делает
-            неправильно. Работаем с юрлицами: чек из «Мой налог», без НДС.
-          </p>
-          <button
-            onClick={() => scrollToForm()}
-            className="rounded-full bg-[#2d4a1e] text-white text-base font-medium px-8 py-4 hover:bg-[#24401a] active:scale-[0.98] transition-all shadow-lg shadow-[#2d4a1e]/20"
+    <section id="hero" className="bg-[#f7f5f2] pt-24 pb-20 md:pt-32 md:pb-28">
+      <div className="max-w-3xl mx-auto px-5 text-center">
+        <h1 className="font-cormorant text-[clamp(34px,6.5vw,64px)] font-semibold text-[#1a1a1a] leading-[1.08] mb-8">
+          Хотите, чтобы гости запомнили ваше мероприятие? Привозим йогу с командой
+          тренеров.
+        </h1>
+        <p className="text-[#1a1a1a]/75 text-lg leading-relaxed mb-10 max-w-2xl mx-auto whitespace-pre-line">
+          {`Я веду практику. Двое ассистентов-тренеров ходят по рядам и мягко поправляют каждого.
+Даже новичок чувствует себя уверенно — его не бросают одного.
+60 минут. Гости уходят с лёгким телом и ясной головой.
+Без усталости и без «я не смогу».`}
+        </p>
+        <button
+          onClick={() => scrollToForm()}
+          className="rounded-full bg-[#2d4a1e] text-white text-base md:text-lg font-medium px-10 py-4 hover:bg-[#24401a] active:scale-[0.98] transition-colors"
+        >
+          Получить предложение
+        </button>
+        <p className="text-[#1a1a1a]/55 text-sm mt-5">
+          Или напишите на почту:{" "}
+          <a
+            href="mailto:almaznayaspina@gmail.com"
+            className="text-[#2d4a1e] hover:underline"
           >
-            Получить КП за 1 час
-          </button>
-          <p className="text-[#8a8a7a] text-sm mt-4">
-            От 5 до 100+ человек. Любой формат.
-          </p>
-        </div>
+            almaznayaspina@gmail.com
+          </a>
+        </p>
       </div>
     </section>
   );
